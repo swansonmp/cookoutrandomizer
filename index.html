@@ -1,0 +1,87 @@
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+
+<script>
+
+function generateTray() {
+	var trays = ["BIG DOUBLE BURGER", "REG. 1/4 LB. HAMBURGER", "REG. BARBEQUE", 
+		"TWO HOT DOGS", "2 QUESADILLA", "REG. CHICKEN", "CAJUN CHICKEN", 
+		"SPICY CHICKEN", "BBQ CHICKEN", "CHICKEN STRIPS"];
+	var str = trays[Math.floor(Math.random() * trays.length)];
+	
+	if (str == "2 QUESADILLA") {
+		var mods = [" (CHICKEN)", " (CHICKEN AND BEEF)", " (BEEF)"];
+		str += mods[Math.floor(Math.random() * mods.length)];
+	} else if (str == "CHICKEN STRIPS") {
+		var mods = ["", " (SANDWICH)"];
+		str += mods[Math.floor(Math.random() * mods.length)];
+	}
+	document.getElementById("tray").innerHTML = str;
+}
+
+function generateSide(id) {
+	var sides = ["ONION RINGS", "FRIES", "HUSHPUPPIES", "SLAW", "CHILI",
+		"BACON WRAP", "CHICKEN NUGGETS", "CORNDOG", "QUESADILLA (CHICKEN)", 
+		"QUESADILLA (BEEF)", "CHICKEN WRAP (RANCH)", "CHICKEN WRAP (CAJUN)",
+		"CHICKEN WRAP (HONEY MUSTARD)"];
+	var str = sides[Math.floor(Math.random() * sides.length)];
+	
+	document.getElementById(id).innerHTML = str;
+}
+
+function generateShake() {
+	var shakes = ["BANANA", "BANANA BERRY", "BANANA FUDGE", "BANANA NUT", 
+		"BANANA PINEAPPLE", "BANANA PUDDING", "BLUEBERRY", "BUTTERFINGER",
+		"CAPPUCCINO", "CARAMEL", "CARAMEL FUDGE", "CHEESECAKE", "CHERRY COBBLER",
+		"HERSHEY'S CHOCOLATE", "DOUBLE CHOCOLATE", "CHOCOLATE CHERRY",
+		"CHOCOLATE CHIP MINT", "CHOCOLATE MALT", "CHOCOLATE NUT",
+		"HEATH TOFFEE", "M&M", "MOCHA", "ORANGE PUSH-UP", "OREO", "OREO MINT",
+		"PEACH", "PEACH COBBLER", "PEANUT BUTTER", "PEANUT BUTTER BANANA",
+		"PEANUT BUTTER FUDGE", "PINEAPPLE", "RED CHERRY", "REESE'S CUP",
+		"SNICKERS", "STRAWBERRY", "VANILLA", "WALNUT"];
+	var str = shakes[Math.floor(Math.random() * shakes.length)];
+	
+	var d = new Date();
+	var month = d.getMonth();
+	if ((month == 7 || month == 8) && Math.random() < 0.20) {
+		str = "WATERMELON";
+	} else if (month == 12 && Math.random() < 0.20) {
+		str = "EGGNOG";
+	}
+
+	document.getElementById("shake").innerHTML = str;
+}
+
+function generateSides() {
+	generateSide("side1");
+	generateSide("side2");
+}
+
+function generate() {
+	generateTray();
+	generateSides();
+	generateShake();
+}
+
+</script>
+
+
+<body onload="generate()">
+
+	<img src="https://304094-930988-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2018/06/reg-tray-1.jpg" alt="COOKOUT TRAY"><br>
+	
+	<button onclick="generate()">GENERATE</button><br><br>
+	
+	<span id="tray"></span><br>
+	<span id="side1"></span><br>
+	<span id="side2"></span><br>
+	<span id="shake"></span><br>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+body {
+	background-color: #d31213;
+}
+
+h1 {
+	background-color: #1B1B1B;
+	padding: 20px;
+	
+	margin: 20px 20px 20px 20px;
+	color: #d31213;
+	font-size: 48px;
+	font-family: Helvetica, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+span {
+	/*top right bottom left*/
+	margin: 20px 20px 20px 20px;
+	color: white;
+	line-height: 30px;
+	font-size: 24px;
+	font-family: Helvetica, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+button {
+	margin: 5px 20px 5px 20px;
+	background-color: black;
+	border: none;
+	color: white;
+	padding: 20px 100px 20px 100px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-family: Helvetica, Helvetica, sans-serif;
+	font-weight: bold;
+}
